@@ -40,9 +40,9 @@ fn main() {
             Err(_) => continue,
         };
 
-	let _user_guess = Guess::new(guess);     
-         
-        match guess.cmp(&secret_number) {
+	let user_guess = Guess::new(guess);     
+ 
+        match Guess::value(&user_guess).cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
